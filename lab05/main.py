@@ -1,4 +1,6 @@
 
+import os
+
 from tablestats import read_rows, count_types, total_minutes, to_csv
 
 filename = input()
@@ -12,5 +14,7 @@ print(len(rows))
 print(len(counts))
 print(total_minutes(rows, "ошибка"))
 
-with open("lab05/summary.csv", "w", encoding="utf-8") as out:
+output_path = os.path.join(os.path.dirname(__file__), "summary.csv")
+
+with open(output_path, "w", encoding="utf-8") as out:
     out.write(to_csv(counts))
