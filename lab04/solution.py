@@ -13,3 +13,9 @@ def average(scores: list[float]) -> float:
         return 0.0
 
     return round(sum(scores) / len(scores), 2)
+
+
+def ranking(names: list[str], scores: list[float]) -> list[str]:
+    results = sorted(zip(scores, names), key=lambda item: item[0], reverse=True)
+
+    return [name for score, name in results]
