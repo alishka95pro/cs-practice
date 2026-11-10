@@ -22,3 +22,21 @@ def block(matrix: list[list[float]], rows: list[int], columns: list[int]) -> lis
     return result.tolist()
 
 
+def column_means(matrix: list[list[float]]) -> list[float]:
+    if not matrix:
+        return []
+
+    array = np.asarray(matrix, dtype=float)
+    result = np.mean(array, axis=0)
+
+    return np.round(result, 6).tolist()
+
+
+def column_range(matrix: list[list[float]], column: int) -> float:
+    if not matrix:
+        return 0.0
+
+    array = np.asarray(matrix, dtype=float)
+    result = np.max(array[:, column]) - np.min(array[:, column])
+
+    return round(float(result), 6)
